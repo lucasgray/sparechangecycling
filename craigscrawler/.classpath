@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="WEB-INF/classes" path="src"/>
+	<classpathentry kind="src" output="WEB-INF/classes" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_2_EM"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_2_CORE"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/scc"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SpareChangeCyclingModel"/>
+	<classpathentry kind="lib" path="test-lib/easymock-2.5.2.jar"/>
+	<classpathentry kind="lib" path="test-lib/easymockclassextension-2.5.2.jar"/>
+	<classpathentry kind="lib" path="test-lib/objenesis-1.2.jar"/>
+	<classpathentry kind="output" path="WEB-INF/classes"/>
+</classpath>
