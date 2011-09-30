@@ -1,0 +1,41 @@
+mysql> create table database1.zip_codes (zip int not null, latitude long not null, longitude long not null, city varchar(1000) not null, state varchar(10) not null, county varchar(100) not null, type varchar(50) not null);
+
+mysql> load data local infile '/home/lucas/Desktop/ZIP_CODES.txt' into table database1.zip_codes fields terminated by ',' lines terminated by '\n';
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNearbyZipCodes`(  
+    zipbase  varchar (6),  
+    range  numeric (15)  
+)
+BEGIN  
+DECLARE  lat1  decimal (5,2);  
+DECLARE  long1  decimal (5,2);  
+DECLARE  rangeFactor  decimal (7,6);  
+SET  rangeFactor = 0.014457;  
+SELECT  latitude,longitude  into  lat1,long1  FROM zip_codes  WHERE  zip = zipbase;  
+SELECT  B.zip  
+FROM  zip_codes  AS  B   
+WHERE    
+ B.latitude  BETWEEN  lat1-(range*rangeFactor)  AND  lat1+(range*rangeFactor)  
+  AND  B.longitude  BETWEEN  long1-(range*rangeFactor)  AND  long1+(range*rangeFactor)  
+  AND  GetDistance(lat1,long1,B.latitude,B.longitude)  <= range;  
+END
+
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `GetDistance`(  
+ lat1  numeric (9,6),  
+ lon1  numeric (9,6),  
+ lat2  numeric (9,6),  
+ lon2  numeric (9,6)  
+) RETURNS decimal(10,5)
+BEGIN  
+  DECLARE  x  decimal (20,10);  
+  DECLARE  pi  decimal (21,20);  
+  SET  pi = 3.14159265358979323846;  
+  SET  x = sin( lat1 * pi/180 ) * sin( lat2 * pi/180  ) + cos(  
+ lat1 *pi/180 ) * cos( lat2 * pi/180 ) * cos(  abs( (lon2 * pi/180) -  
+ (lon1 *pi/180) ) );  
+  SET  x = atan( ( sqrt( 1- power( x, 2 ) ) ) / x );  
+  RETURN  ( 1.852 * 60.0 * ((x/pi)*180) ) / 1.609344;  
+END
+

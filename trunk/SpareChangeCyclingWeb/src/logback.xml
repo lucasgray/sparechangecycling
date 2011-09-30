@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+ <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+    <Target>System.out</Target>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <pattern>%d{MMM dd yyyy HH:mm:ss} %5p %logger:%L - %m%n</pattern>
+    </layout>
+  </appender>
+
+ <appender name="file" class="ch.qos.logback.core.FileAppender">
+    <File>${catalina.base}/logs/scc.log</File>
+    <Append>true</Append>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+          <pattern>%d{MMM dd yyyy HH:mm:ss} %5p %logger:%L - %m%n</pattern>
+    </layout>
+  </appender>
+  
+   <logger name="net.sourceforge.stripes">
+        <level value="debug"/>
+   </logger>
+  
+   <logger name="com.sparechangecycling" additivity="false">
+   <level value="debug"/>
+		 <appender-ref ref="file" />
+		 <appender-ref ref="stdout"/>
+   </logger>
+ 
+  <root>
+      <level value="debug" />
+      <appender-ref ref="file" />
+      <appender-ref ref="stdout"/>
+  </root>
+</configuration> 
