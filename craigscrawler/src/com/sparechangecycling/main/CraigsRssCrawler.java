@@ -19,7 +19,7 @@ public class CraigsRssCrawler {
 	private static final Logger logger = LoggerFactory.getLogger(CraigsRssCrawler.class);
 	private CraigsDAO dao;
 	private static int poolSize;
-	private static boolean ignoreTimer=false;
+	private static boolean ignoreTimer;
 	
 	public static void main(String[] args) throws Exception {
 		if(args.length > 0) {
