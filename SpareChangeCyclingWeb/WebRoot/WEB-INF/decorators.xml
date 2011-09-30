@@ -1,0 +1,18 @@
+<decorators defaultdir="/decorators">
+	<excludes>
+        <pattern>/buyJsps/*</pattern>
+        <pattern>/snippets/*</pattern>
+        <pattern>/used-bikes/user-profile/popUpMsgDialog?*</pattern>
+        <pattern>/used-bikes/user-profile/viewSingleMessage?*</pattern>
+    </excludes>
+
+    <decorator name="basic" page="basic.jsp">
+          <pattern>/used-bikes*</pattern>
+          <pattern>/articles/*</pattern>
+    </decorator>
+    
+    <decorator name="home" page="home_look.jsp">
+          
+    </decorator>
+    
+</decorators>
