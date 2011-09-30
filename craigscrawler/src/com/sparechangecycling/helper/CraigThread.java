@@ -2,6 +2,7 @@ package com.sparechangecycling.helper;
 
 import java.math.BigDecimal;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -47,7 +48,13 @@ public class CraigThread extends Thread {
 			es.setCommunity(commie);
 			long lastId = dao.getLastEntry(commie);
 			String urlOfCity = String.format(RSS_FEED, commie);
-			XmlReader xmlReader = new XmlReader(new URL(urlOfCity));
+			
+			URL city = new URL(urlOfCity);
+			
+			URLConnection urlconn = city.openConnection();
+			urlconn.setRequestProperty("User-Agent", "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)");
+			
+			XmlReader xmlReader = new XmlReader(urlconn);
 			SyndFeed feed = new SyndFeedInput().build(new XMLFilterReader(xmlReader));
 			for (Object entryObj : feed.getEntries()) {
 				SyndEntry entry = (SyndEntry)entryObj;

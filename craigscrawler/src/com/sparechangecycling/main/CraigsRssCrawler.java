@@ -19,7 +19,7 @@ public class CraigsRssCrawler {
 	private static final Logger logger = LoggerFactory.getLogger(CraigsRssCrawler.class);
 	private CraigsDAO dao;
 	private static int poolSize;
-	private static boolean ignoreTimer;
+	private static boolean ignoreTimer=false;
 	
 	public static void main(String[] args) throws Exception {
 		if(args.length > 0) {
@@ -39,9 +39,9 @@ public class CraigsRssCrawler {
 		ExecutorService executor = Executors.newFixedThreadPool(poolSize);
 		for (String commie : commies) {
 			FeedTimer timer = new FeedTimer(dao, commie);
-			if(ignoreTimer || timer.read()) {
+			//if(ignoreTimer || timer.read()) {
 				executor.submit(new CraigThread(dao, commie, timer));
-			}
+			//}
 		}
 		executor.shutdown();
 		executor.awaitTermination(60, TimeUnit.MINUTES);

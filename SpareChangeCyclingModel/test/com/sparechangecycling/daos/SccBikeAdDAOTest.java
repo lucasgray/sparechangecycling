@@ -26,7 +26,7 @@ public class SccBikeAdDAOTest {
 		ad.setYear("2007");
 		ad.setType(AdType.HYBRID.toString());
 		ad.setPrice(new BigDecimal(123.45));
-		Pic pic = new Pic("http://localhost/images/thumbs/Firefox_wallpaper_tn.png");
+		Pic pic = new Pic();//"http://localhost/images/thumbs/Firefox_wallpaper_tn.png");
 		
 		HibernateSessionFactory.getSession().save(pic);
 		List li = new ArrayList();
