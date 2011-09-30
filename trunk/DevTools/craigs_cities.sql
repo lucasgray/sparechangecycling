@@ -1,9 +1,9 @@
-use database1//
+use scc//
 
-drop table if exists database1.craigs_cities//
-create table database1.craigs_cities (craigsname varchar(50) not null primary key, zip varchar(6) not null, rate smallint not null default 1, foreign key(zip) references zip_codes(zip))//
+drop table if exists scc.craigs_cities//
+create table scc.craigs_cities (craigsname varchar(50) not null primary key, zip varchar(6) not null, rate smallint not null default 1, foreign key(zip) references zip_codes(zip))//
 
-INSERT INTO database1.craigs_cities(craigsname, zip) VALUES
+INSERT INTO scc.craigs_cities(craigsname, zip) VALUES
 ('abilene','79602'),
 ('akroncanton','44720'),
 ('anchorage','99577'),

@@ -25,7 +25,7 @@ public class Pic {
 	}
 
 	public String getHref() {
-		return ImageHandler.getHttpPrefix()+href;
+		return href;//ImageHandler.getHttpPrefix()+href;
 	}
 
 	public void setHref(String href) {

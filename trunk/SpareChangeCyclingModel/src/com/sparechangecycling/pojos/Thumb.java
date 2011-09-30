@@ -28,7 +28,7 @@ public class Thumb {
 		this.id = id;
 	}
 	public String getHref() {
-		return ImageHandler.getHttpPrefix()+ImageHandler.getThumbHttpPrefix()+href;
+		return href;//ImageHandler.getHttpPrefix()+ImageHandler.getThumbHttpPrefix()+href;
 	}
 	public void setHref(String href) {
 		this.href = href;

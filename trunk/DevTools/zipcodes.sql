@@ -1,11 +1,11 @@
-use database1//
+use scc//
 
-drop table if exists database1.craigs_cities//
+drop table if exists scc.craigs_cities//
 
-drop table if exists database1.zip_codes//
-create table database1.zip_codes (zip varchar(6) not null primary key, latitude long not null, longitude long not null, city varchar(1000) not null, state varchar(10) not null)//
+drop table if exists scc.zip_codes//
+create table scc.zip_codes (zip varchar(6) not null primary key, latitude long not null, longitude long not null, city varchar(1000) not null, state varchar(10) not null)//
 
-load data local infile 'ZIP_CODES.txt' into table database1.zip_codes fields terminated by ',' lines terminated by '\n' (zip, latitude, longitude, city, state)//
+load data local infile 'ZIP_CODES.txt' into table scc.zip_codes fields terminated by ',' lines terminated by '\n' (zip, latitude, longitude, city, state)//
 
 DROP PROCEDURE IF EXISTS `GetNearbyZipCodes`//
 CREATE DEFINER=`root`@`localhost` PROCEDURE `GetNearbyZipCodes`(  

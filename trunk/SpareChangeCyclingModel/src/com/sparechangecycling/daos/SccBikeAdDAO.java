@@ -57,11 +57,11 @@ public class SccBikeAdDAO extends SccDAO {
 			assert(user.getId() == userId);
 			user.getAds().remove(bike);
 			
-			String thumbUrl = bike.getThumbs().get(0).getHref();
-			String picUrl = bike.getPics().get(0).getHref();
+//			String thumbUrl = bike.getThumbs().get(0).getHref();
+//			String picUrl = bike.getPics().get(0).getHref();
 			
-			ImageHandler.deleteImage(ImageHandler.convertApacheUrlToFilepath(thumbUrl, true));
-			ImageHandler.deleteImage(ImageHandler.convertApacheUrlToFilepath(picUrl, false));
+//			ImageHandler.deleteImage(ImageHandler.convertApacheUrlToFilepath(thumbUrl, true));
+//			ImageHandler.deleteImage(ImageHandler.convertApacheUrlToFilepath(picUrl, false));
 			
 			session.delete(bike);
 			session.merge(user);
