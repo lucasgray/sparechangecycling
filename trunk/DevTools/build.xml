@@ -4,7 +4,7 @@
 		<sql driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/scc?useUnicode=true&amp;characterEncoding=UTF-8" userid="${username}" password="${password}" delimiter="//">
 			<classpath>
 				<pathelement path="../SccSharedJars/mysql-connector-java-5.1.7-bin.jar" />
-			</classpath>
+			</classpath> 
 			<transaction src="zipcodes.sql" />
 			<transaction src="craigs_cities.sql" />
 		</sql>
