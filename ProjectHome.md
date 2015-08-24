@@ -1,0 +1,1 @@
+java based webapp/web crawler, stripes, hibernate
